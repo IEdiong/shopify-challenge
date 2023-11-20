@@ -255,9 +255,12 @@ button {
 .step__details {
   /* border: 1px solid green; */
   border-radius: 10px;
-  background: #f3f3f3;
   padding: 8px;
-  padding-bottom: 12px;
+  padding-bottom: 16px;
+}
+
+.step__details[open] {
+  background: #f3f3f3;
 }
 
 .step__summary {
@@ -299,11 +302,19 @@ button {
   text-decoration: none;
 }
 
-.content > button {
+.content-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-top: 16px;
+}
+
+.btn {
   display: flex;
   padding: 6px 12px;
+}
 
+.dark-btn {
   border-top: 1.5px solid var(--stroke-100, rgba(255, 255, 255, 0.2));
   border-right: 1.5px solid var(--stroke-100, rgba(255, 255, 255, 0.2));
   border-left: 1.5px solid var(--stroke-100, rgba(255, 255, 255, 0.2));
