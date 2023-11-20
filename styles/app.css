@@ -205,3 +205,55 @@ button {
   font-weight: 600;
   line-height: 130%;
 }
+
+.setup-guide {
+  margin-top: 16px;
+  padding: 8px;
+  background: var(--white);
+  color: var(--fnt-dark);
+}
+
+summary {
+  /* border: 1px solid var(--focused); */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+  padding: 8px;
+}
+
+summary:hover {
+  cursor: pointer;
+}
+
+details > summary::after {
+  content: url('https://crushingit.tech/hackathon-assets/icon-arrow-down.svg');
+  height: 28px;
+  width: 28px;
+}
+
+details[open] > summary::after {
+  content: url('https://crushingit.tech/hackathon-assets/icon-arrow-up.svg');
+  height: 28px;
+  width: 28px;
+}
+
+.setup-guide__summary > h2 {
+  font-size: 0.875rem;
+}
+
+.setup-guide__summary > p {
+  margin-top: 4px;
+}
+
+.setup-guide__summary > div {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  line-height: 130%;
+}
+
+.content {
+  font-weight: 600;
+  line-height: 140%;
+  padding-top: 16px;
+}
