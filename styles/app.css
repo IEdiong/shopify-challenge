@@ -19,6 +19,11 @@
   --focused: #005bd3;
   --pressed: #f0f0f0;
   --hovered: #f7f7f7;
+
+  /* font color */
+  --fnt-light: #e3e3e3;
+  --fnt-mid: #616161;
+  --fnt-dark: #303030;
 }
 
 *,
@@ -31,6 +36,9 @@
 
 /* Base Styles */
 body {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  line-height: 140%;
   background: var(--bg);
 }
 
@@ -155,4 +163,45 @@ button {
 
 .menu__initials p {
   opacity: 0.4;
+}
+
+.main {
+  padding-top: 28px;
+}
+
+.trail__banner {
+  display: flex;
+  align-items: flex-start;
+  background: var(--grey-300);
+  color: var(--fnt-light);
+  padding-block: 12px;
+  padding-left: 16px;
+  padding-right: 8px;
+}
+
+.trail__body {
+  flex: 1 0 0;
+}
+
+.trail__body > p {
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.trail__close-btn {
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+}
+
+.trail__cta {
+  background: var(--white);
+  height: 28px;
+  padding-inline: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -1px 0px 0px #b5b5b5 inset;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 130%;
 }
