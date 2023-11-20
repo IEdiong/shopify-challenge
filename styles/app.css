@@ -213,7 +213,7 @@ button {
   color: var(--fnt-dark);
 }
 
-summary {
+.setup__summary {
   /* border: 1px solid var(--focused); */
   display: flex;
   justify-content: space-between;
@@ -222,17 +222,17 @@ summary {
   padding: 8px;
 }
 
-summary:hover {
+.setup__summary:hover {
   cursor: pointer;
 }
 
-details > summary::after {
+.setup__details > .setup__summary::after {
   content: url('https://crushingit.tech/hackathon-assets/icon-arrow-down.svg');
   height: 28px;
   width: 28px;
 }
 
-details[open] > summary::after {
+.setup__details[open] > .setup__summary::after {
   content: url('https://crushingit.tech/hackathon-assets/icon-arrow-up.svg');
   height: 28px;
   width: 28px;
@@ -252,8 +252,65 @@ details[open] > summary::after {
   line-height: 130%;
 }
 
-.content {
+.step__details {
+  /* border: 1px solid green; */
+  border-radius: 10px;
+  background: #f3f3f3;
+  padding: 8px;
+  padding-bottom: 12px;
+}
+
+.step__summary {
+  /* border: 1px solid var(--focused); */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step__summary > p {
   font-weight: 600;
-  line-height: 140%;
+}
+
+.step__status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+}
+
+.step__image {
+  stroke: #8a8a8a;
+  width: 100%;
+}
+
+.content {
   padding-top: 16px;
+  padding-left: 32px;
+}
+
+.content > p {
+  color: var(--fnt-mid);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.content > p a {
+  color: var(--focused);
+  text-decoration: none;
+}
+
+.content > button {
+  margin-top: 16px;
+  display: flex;
+  padding: 6px 12px;
+
+  border-top: 1.5px solid var(--stroke-100, rgba(255, 255, 255, 0.2));
+  border-right: 1.5px solid var(--stroke-100, rgba(255, 255, 255, 0.2));
+  border-left: 1.5px solid var(--stroke-100, rgba(255, 255, 255, 0.2));
+  box-shadow: 0px 0px 0px 1.5px #333, 0px 1px 0px 1.5px #333,
+    0px 2px 0px 0px #000;
+
+  background: #404040;
+  color: var(--fnt-light);
+  border-radius: 6px;
 }
