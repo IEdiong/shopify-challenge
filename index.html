@@ -117,51 +117,61 @@
         </div>
       </div>
       <div class="nav__right">
-        <button class="notification__btn" aria-label="notification">
-          <svg
-            width="41"
-            height="40"
-            viewBox="0 0 21 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
+        <div class="notification__dropdown">
+          <button
+            class="notification__btn"
+            aria-label="notification"
+            id="notification-btn"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="notification-panel"
           >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M7.75203 14.4239L5.3061 14.1427C3.45144 13.9295 2.92542 11.4844 4.52838 10.5274L4.5933 10.4886C5.466 9.96761 6.00045 9.02609 6.00045 8.00969V7.5C6.00045 5.01472 8.01517 3 10.5005 3C12.9857 3 15.0005 5.01472 15.0005 7.5V8.00969C15.0005 9.02609 15.5349 9.96761 16.4076 10.4886L16.4725 10.5274C18.0755 11.4844 17.5495 13.9295 15.6948 14.1427L13.152 14.435V14.8C13.152 16.2912 11.9432 17.5 10.452 17.5C8.96086 17.5 7.75203 16.2912 7.75203 14.8V14.4239ZM11.652 14.5H9.25203V14.8C9.25203 15.4627 9.78929 16 10.452 16C11.1148 16 11.652 15.4627 11.652 14.8V14.5ZM8.50045 13H12.5005L15.5235 12.6525C15.953 12.6032 16.0748 12.0369 15.7036 11.8153L15.6387 11.7766C15.5591 11.7291 15.4815 11.6793 15.4057 11.6273C15.2506 11.521 15.1036 11.4055 14.9651 11.2818C14.9405 11.2598 14.9162 11.2377 14.8922 11.2152C14.0144 10.395 13.5005 9.23833 13.5005 8.00969V7.5C13.5005 5.84315 12.1573 4.5 10.5005 4.5C8.8436 4.5 7.50045 5.84315 7.50045 7.5V8.00969C7.50045 9.23833 6.98651 10.395 6.10871 11.2152C6.08469 11.2377 6.06039 11.2598 6.03583 11.2818C5.89734 11.4055 5.75029 11.521 5.59523 11.6273C5.51945 11.6793 5.44176 11.7291 5.36222 11.7766L5.29729 11.8153C4.9261 12.0369 5.0479 12.6032 5.47739 12.6525L8.50045 13Z"
-              fill="#fff"
-            />
-          </svg>
-        </button>
-        <div class="menu__dropdown">
-          <div class="menu-btn__container">
-            <span class="username">Davii Collections</span>
-            <button
-              class="menu__btn"
-              aria-label="my store"
-              id="menubutton"
-              aria-haspopup="true"
-              aria-controls="menu"
+            <svg
+              width="41"
+              height="40"
+              viewBox="0 0 21 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
-              <div class="menu__initials">
-                <p>DC</p>
-              </div>
-            </button>
-          </div>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.75203 14.4239L5.3061 14.1427C3.45144 13.9295 2.92542 11.4844 4.52838 10.5274L4.5933 10.4886C5.466 9.96761 6.00045 9.02609 6.00045 8.00969V7.5C6.00045 5.01472 8.01517 3 10.5005 3C12.9857 3 15.0005 5.01472 15.0005 7.5V8.00969C15.0005 9.02609 15.5349 9.96761 16.4076 10.4886L16.4725 10.5274C18.0755 11.4844 17.5495 13.9295 15.6948 14.1427L13.152 14.435V14.8C13.152 16.2912 11.9432 17.5 10.452 17.5C8.96086 17.5 7.75203 16.2912 7.75203 14.8V14.4239ZM11.652 14.5H9.25203V14.8C9.25203 15.4627 9.78929 16 10.452 16C11.1148 16 11.652 15.4627 11.652 14.8V14.5ZM8.50045 13H12.5005L15.5235 12.6525C15.953 12.6032 16.0748 12.0369 15.7036 11.8153L15.6387 11.7766C15.5591 11.7291 15.4815 11.6793 15.4057 11.6273C15.2506 11.521 15.1036 11.4055 14.9651 11.2818C14.9405 11.2598 14.9162 11.2377 14.8922 11.2152C14.0144 10.395 13.5005 9.23833 13.5005 8.00969V7.5C13.5005 5.84315 12.1573 4.5 10.5005 4.5C8.8436 4.5 7.50045 5.84315 7.50045 7.5V8.00969C7.50045 9.23833 6.98651 10.395 6.10871 11.2152C6.08469 11.2377 6.06039 11.2598 6.03583 11.2818C5.89734 11.4055 5.75029 11.521 5.59523 11.6273C5.51945 11.6793 5.44176 11.7291 5.36222 11.7766L5.29729 11.8153C4.9261 12.0369 5.0479 12.6032 5.47739 12.6525L8.50045 13Z"
+                fill="#fff"
+              />
+            </svg>
+          </button>
+          <div
+            id="notification-panel"
+            class="notification-panel"
+            aria-labelledby="notification-btn"
+          ></div>
+        </div>
+        <div class="menu__dropdown">
+          <button
+            class="menu__btn"
+            aria-label="my store"
+            id="menubutton"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="menu-content"
+          >
+            <span class="username">Davii Collections</span>
+            <div class="menu__initials">
+              <p>DC</p>
+            </div>
+          </button>
+
           <ul
             class="menu__list"
-            id="menu"
+            id="menu-content"
             role="menu"
-            aria-labelledby="menubutton"
+            aria-labelledby="menu-button"
           >
             <div role="group" class="menu__group">
               <li role="presentation">
-                <a
-                  role="menuitem"
-                  href="#collection"
-                  class="menu__link collection__link"
-                >
+                <button role="menuitem" class="menu__item collection__link">
                   <div class="menu__collection">
                     <span>
                       <p>DC</p>
@@ -174,6 +184,7 @@
                     height="16"
                     viewBox="0 0 16 16"
                     fill="none"
+                    aria-hidden="true"
                   >
                     <path
                       d="M13.3332 4L5.99984 11.3333L2.6665 8"
@@ -183,70 +194,56 @@
                       stroke-linejoin="round"
                     />
                   </svg>
-                </a>
+                </button>
               </li>
               <li role="presentation">
-                <a
-                  role="menuitem"
-                  href="#associated_wai-aria_roles_states_and_properties"
-                  class="menu__link menu__store"
-                >
+                <button role="menuitem" class="menu__item menu__store">
                   <img
                   src="https://crushingit.tech/hackathon-assets/icon-store.svg"
                   alt="store" width="20px" height="20px aria-hidden="true" />
                   <span> All stores </span>
-                </a>
+                </button>
               </li>
             </div>
             <div role="separator" class="separator"></div>
             <div role="group" class="menu__group">
               <li role="presentation">
-                <a role="menuitem" href="#help_center" class="menu__link">
-                  Help Center
-                </a>
+                <button role="menuitem" class="menu__item">Help Center</button>
               </li>
               <li role="presentation">
-                <a role="menuitem" href="#changelog" class="menu__link"
-                  >Changelog</a
-                >
+                <button role="menuitem" class="menu__item">Changelog</button>
               </li>
               <li role="presentation">
-                <a role="menuitem" href="#Community_forums" class="menu__link"
-                  >Community forums</a
-                >
+                <button role="menuitem" class="menu__item">
+                  Community forums
+                </button>
               </li>
               <li role="presentation">
-                <a role="menuitem" href="#partner" class="menu__link"
-                  >Hire a Shopify Partner</a
-                >
+                <button role="menuitem" class="menu__item">
+                  Hire a Shopify Partner
+                </button>
               </li>
               <li role="presentation">
-                <a role="menuitem" href="#shortcuts" class="menu__link"
-                  >Keyboard shortcuts</a
-                >
+                <button role="menuitem" class="menu__item">
+                  Keyboard shortcuts
+                </button>
               </li>
             </div>
             <div role="separator" class="separator"></div>
             <div role="group" class="menu__group">
               <li role="presentation">
-                <a
-                  role="menuitem"
-                  href="#manage_account"
-                  class="menu__link profile__link"
-                >
+                <button role="menuitem" class="menu__item profile__btn">
                   <span>David Micheal</span>
                   <span>davidmicheal@gmail.com</span>
-                </a>
+                </button>
               </li>
               <li role="presentation">
-                <a role="menuitem" href="#manage_account" class="menu__link"
-                  >Manage account</a
-                >
+                <button role="menuitem" class="menu__item">
+                  Manage account
+                </button>
               </li>
               <li role="presentation">
-                <a role="menuitem" href="#log_out" class="menu__link"
-                  >Log out</a
-                >
+                <button role="menuitem" class="menu__item">Log out</button>
               </li>
             </div>
           </ul>

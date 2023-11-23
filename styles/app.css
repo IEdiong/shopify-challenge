@@ -152,11 +152,6 @@ ul {
   color: var(--white);
 }
 
-.menu-btn__container {
-  display: flex;
-  align-items: center;
-}
-
 .username {
   display: none;
 }
@@ -165,8 +160,10 @@ ul {
   display: flex;
   align-items: center;
   padding: 2px;
-  width: 32px;
   height: 32px;
+  width: 32px;
+  border-radius: 8px;
+  background: var(--grey-50);
 }
 
 .menu__initials {
@@ -191,7 +188,10 @@ ul {
   position: absolute;
   right: 16px;
   top: 68px;
-  width: 320px;
+  width: min(320px, 90%);
+  min-width: 200px;
+
+  /* display: none; */
 }
 
 .menu__group {
@@ -211,7 +211,7 @@ ul {
   background: var(--stroke-100);
 }
 
-.menu__link {
+.menu__item {
   display: block;
   height: 30px;
   width: 100%;
@@ -219,9 +219,10 @@ ul {
   text-decoration: none;
   color: var(--fnt-dark);
   border-radius: 8px;
+  text-align: left;
 }
 
-.menu__link:hover {
+.menu__item:hover {
   background: var(--hovered);
 }
 
@@ -263,20 +264,22 @@ ul {
 .menu__store {
   display: flex;
   align-items: center;
+  justify-content: start;
   gap: 8px;
 }
 
-.profile__link {
+.profile__btn {
   display: flex;
   flex-direction: column;
+  align-items: start;
   height: auto;
 }
 
-.profile__link > span:first-child {
+.profile__btn > span:first-child {
   font-weight: 500;
 }
 
-.profile__link > span:last-child {
+.profile__btn > span:last-child {
   font-size: 12px;
   color: var(--grey-100);
 }
@@ -467,23 +470,16 @@ ul {
     cursor: pointer;
   }
 
-  .menu-btn__container {
-    padding: 2px;
+  .menu__btn {
     gap: 8px;
-    border-radius: 8px;
-    background: var(--grey-200);
     cursor: pointer;
+    width: auto;
   }
 
   .username {
     display: inline;
     color: var(--fnt-light);
-    margin-left: 4px;
-  }
-
-  .menu__btn {
-    padding: 0;
-    cursor: pointer;
+    margin-left: 6px;
   }
 
   .main {
