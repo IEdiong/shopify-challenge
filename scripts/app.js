@@ -2,28 +2,70 @@
 
 // Get elements from the DOM
 const menuBtn = document.getElementById('menubutton');
+const menu = document.getElementById('menu-content');
+const menuItems = menu.querySelectorAll('[role="menuitem"]');
+
+let escapeListner,
+  menuNavigation,
+  el = 0;
 
 // Add event listeners
 menuBtn.addEventListener('click', toggleMenu);
-document.addEventListener('keydown', closeMenu);
 
 // Function to execute
 function toggleMenu() {
-  document.getElementById('menu-content').classList.toggle('menu-open');
-
   // change the aria-* attribute
   // Focus on first menu item or button
   if (menuBtn.attributes['aria-expanded'].value === 'true') {
-    menuBtn.ariaExpanded = 'false';
-    menuBtn.focus();
+    closeMenu();
   } else {
-    menuBtn.ariaExpanded = 'true';
-    const menuItems = document.querySelectorAll('[role="menuitem"]');
-    menuItems.item(0).focus();
+    openMenu();
   }
 }
 
-function closeMenu(e) {
-  if (e.keyCode === 27 && menuBtn.attributes['aria-expanded'].value === 'true')
-    toggleMenu();
+function closeMenu() {
+  menu.classList.toggle('menu-open');
+  menuBtn.ariaExpanded = 'false';
+  menuBtn.focus();
+
+  menu.removeEventListener('keyup', escapeListner);
+  menu.removeEventListener('keyup', menuNavigation);
+}
+
+function openMenu() {
+  el = 0;
+  menu.classList.toggle('menu-open');
+  menuBtn.ariaExpanded = 'true';
+  menuItems.item(el).focus();
+
+  escapeListner = menu.addEventListener('keyup', handleMenuEscapeKeypress);
+  menuNavigation = menu.addEventListener('keyup', handleMenuNavigation);
+}
+
+function handleMenuEscapeKeypress(e) {
+  if (e.keyCode === 27) closeMenu();
+}
+
+function handleMenuNavigation(e) {
+  // console.log(e);
+
+  // 40 -> down arrow
+  // 39 -> right arrow
+  // 37 -> left arrow
+  // 38 -> up arrow
+
+  if (e.keyCode === 40 || e.keyCode === 39) {
+    if (el < menuItems.length - 1) {
+      el++;
+    } else {
+      el = 0;
+    }
+  } else {
+    if (el > 0) {
+      el--;
+    } else {
+      el = menuItems.length - 1;
+    }
+  }
+  menuItems.item(el).focus();
 }

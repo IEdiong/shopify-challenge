@@ -291,6 +291,7 @@ ul {
 
 .main {
   padding-top: 28px;
+  padding-bottom: 28px;
 }
 
 .trail__banner {
@@ -477,8 +478,12 @@ ul {
 
   .menu__btn {
     gap: 8px;
-    cursor: pointer;
     width: auto;
+  }
+
+  .menu__btn:hover,
+  .menu__item:hover {
+    cursor: pointer;
   }
 
   .username {
