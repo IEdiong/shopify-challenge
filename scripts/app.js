@@ -5,7 +5,7 @@ const menuBtn = document.getElementById('menubutton');
 
 // Add event listeners
 menuBtn.addEventListener('click', toggleMenu);
-document.addEventListener('keypress', closeMenu);
+document.addEventListener('keydown', closeMenu);
 
 // Function to execute
 function toggleMenu() {
@@ -23,4 +23,7 @@ function toggleMenu() {
   }
 }
 
-function closeMenu() {}
+function closeMenu(e) {
+  if (e.keyCode === 27 && menuBtn.attributes['aria-expanded'].value === 'true')
+    toggleMenu();
+}
