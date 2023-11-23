@@ -173,7 +173,7 @@
               <li role="presentation">
                 <button role="menuitem" class="menu__item collection__link">
                   <div class="menu__collection">
-                    <span>
+                    <span aria-hidden="true">
                       <p>DC</p>
                     </span>
                     <span>Davii Collections</span>
@@ -200,8 +200,8 @@
                 <button role="menuitem" class="menu__item menu__store">
                   <img
                   src="https://crushingit.tech/hackathon-assets/icon-store.svg"
-                  alt="store" width="20px" height="20px aria-hidden="true" />
-                  <span> All stores </span>
+                  alt="" width="20px" height="20px aria-hidden="true" />
+                  <span>All stores</span>
                 </button>
               </li>
             </div>
@@ -232,7 +232,11 @@
             <div role="separator" class="separator"></div>
             <div role="group" class="menu__group">
               <li role="presentation">
-                <button role="menuitem" class="menu__item profile__btn">
+                <button
+                  role="menuitem"
+                  class="menu__item profile__btn"
+                  aria-label="David Micheal's profile"
+                >
                   <span>David Micheal</span>
                   <span>davidmicheal@gmail.com</span>
                 </button>

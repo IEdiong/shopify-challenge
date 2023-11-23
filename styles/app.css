@@ -51,7 +51,8 @@ input[type='search']::-webkit-search-results-decoration {
 
 input[type='search']:focus-visible,
 button:focus-visible,
-.menu__link:focus {
+button:focus,
+.menu__item:focus {
   outline: 2px solid var(--focused);
   border-radius: 8px;
 }
@@ -191,7 +192,11 @@ ul {
   width: min(320px, 90%);
   min-width: 200px;
 
-  /* display: none; */
+  display: none;
+}
+
+.menu-open {
+  display: block;
 }
 
 .menu__group {
