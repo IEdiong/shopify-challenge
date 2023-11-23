@@ -106,6 +106,7 @@ button {
   border-radius: 8px;
   border: 1px solid var(--stroke-200);
   position: relative;
+  transition: max-width 0.4s ease-in-out;
 }
 
 .search {
@@ -144,6 +145,15 @@ button {
   height: 32px;
   padding: 6px;
   color: var(--white);
+}
+
+.menu-btn__container {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  display: none;
 }
 
 .menu__btn {
@@ -346,8 +356,47 @@ button {
   .search__container {
     position: absolute;
     width: 100%;
-    max-width: 480px;
+    max-width: 300px;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .notification__btn {
+    cursor: pointer;
+  }
+
+  .menu-btn__container {
+    padding: 2px;
+    gap: 8px;
+    border-radius: 8px;
+    background: var(--grey-200);
+    cursor: pointer;
+  }
+
+  .username {
+    display: inline;
+    color: var(--fnt-light);
+    margin-left: 4px;
+  }
+
+  .menu__btn {
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .main {
+    padding-inline: 16px;
+    margin-inline: auto;
+    max-width: calc(800px + 32px);
+  }
+
+  .main > div {
+    border-radius: 8px;
+  }
+}
+
+@media (min-width: 912px) {
+  .search__container {
+    max-width: 480px;
   }
 }
