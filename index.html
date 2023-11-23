@@ -134,13 +134,122 @@
             />
           </svg>
         </button>
-        <div class="menu-btn__container">
-          <span class="username">Davii Collections</span>
-          <button class="menu__btn" aria-label="my store">
-            <div class="menu__initials">
-              <p>DC</p>
+        <div class="menu__dropdown">
+          <div class="menu-btn__container">
+            <span class="username">Davii Collections</span>
+            <button
+              class="menu__btn"
+              aria-label="my store"
+              id="menubutton"
+              aria-haspopup="true"
+              aria-controls="menu"
+            >
+              <div class="menu__initials">
+                <p>DC</p>
+              </div>
+            </button>
+          </div>
+          <ul
+            class="menu__list"
+            id="menu"
+            role="menu"
+            aria-labelledby="menubutton"
+          >
+            <div role="group" class="menu__group">
+              <li role="presentation">
+                <a
+                  role="menuitem"
+                  href="#collection"
+                  class="menu__link collection__link"
+                >
+                  <div class="menu__collection">
+                    <span>
+                      <p>DC</p>
+                    </span>
+                    <span>Davii Collections</span>
+                  </div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M13.3332 4L5.99984 11.3333L2.6665 8"
+                      stroke="#303030"
+                      stroke-width="1.33333"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li role="presentation">
+                <a
+                  role="menuitem"
+                  href="#associated_wai-aria_roles_states_and_properties"
+                  class="menu__link menu__store"
+                >
+                  <img
+                  src="https://crushingit.tech/hackathon-assets/icon-store.svg"
+                  alt="store" width="20px" height="20px aria-hidden="true" />
+                  <span> All stores </span>
+                </a>
+              </li>
             </div>
-          </button>
+            <div role="separator" class="separator"></div>
+            <div role="group" class="menu__group">
+              <li role="presentation">
+                <a role="menuitem" href="#help_center" class="menu__link">
+                  Help Center
+                </a>
+              </li>
+              <li role="presentation">
+                <a role="menuitem" href="#changelog" class="menu__link"
+                  >Changelog</a
+                >
+              </li>
+              <li role="presentation">
+                <a role="menuitem" href="#Community_forums" class="menu__link"
+                  >Community forums</a
+                >
+              </li>
+              <li role="presentation">
+                <a role="menuitem" href="#partner" class="menu__link"
+                  >Hire a Shopify Partner</a
+                >
+              </li>
+              <li role="presentation">
+                <a role="menuitem" href="#shortcuts" class="menu__link"
+                  >Keyboard shortcuts</a
+                >
+              </li>
+            </div>
+            <div role="separator" class="separator"></div>
+            <div role="group" class="menu__group">
+              <li role="presentation">
+                <a
+                  role="menuitem"
+                  href="#manage_account"
+                  class="menu__link profile__link"
+                >
+                  <span>David Micheal</span>
+                  <span>davidmicheal@gmail.com</span>
+                </a>
+              </li>
+              <li role="presentation">
+                <a role="menuitem" href="#manage_account" class="menu__link"
+                  >Manage account</a
+                >
+              </li>
+              <li role="presentation">
+                <a role="menuitem" href="#log_out" class="menu__link"
+                  >Log out</a
+                >
+              </li>
+            </div>
+          </ul>
         </div>
       </div>
     </nav>
