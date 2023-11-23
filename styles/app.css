@@ -92,6 +92,10 @@ button {
   flex: 1 0 0;
 }
 
+.logo-lg {
+  display: none;
+}
+
 .search__container {
   display: flex;
   align-items: center;
@@ -324,4 +328,26 @@ button {
   background: #404040;
   color: var(--fnt-light);
   border-radius: 6px;
+}
+
+@media (min-width: 756px) {
+  .logo-lg {
+    display: block;
+  }
+
+  .logo-sm {
+    display: none;
+  }
+
+  .nav {
+    position: relative;
+  }
+
+  .search__container {
+    position: absolute;
+    width: 100%;
+    max-width: 480px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
