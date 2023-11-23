@@ -5,12 +5,16 @@ const menuBtn = document.getElementById('menubutton');
 const menu = document.getElementById('menu-content');
 const menuItems = menu.querySelectorAll('[role="menuitem"]');
 
+const notificationBtn = document.getElementById('notification-btn');
+const notification = document.getElementById('notification-panel');
+
 let escapeListner,
   menuNavigation,
   el = 0;
 
 // Add event listeners
 menuBtn.addEventListener('click', toggleMenu);
+notificationBtn.addEventListener('click', toggleNotification);
 
 // Function to execute
 function toggleMenu() {
@@ -68,4 +72,22 @@ function handleMenuNavigation(e) {
     }
   }
   menuItems.item(el).focus();
+}
+
+function openNotification() {
+  notification.classList.add('open-notification');
+  notificationBtn.ariaExpanded = 'true';
+}
+
+function closeNotification() {
+  notification.classList.remove('open-notification');
+  notificationBtn.ariaExpanded = 'false';
+}
+
+function toggleNotification() {
+  if (notificationBtn.attributes['aria-expanded'].value === 'true') {
+    closeNotification();
+  } else {
+    openNotification();
+  }
 }
