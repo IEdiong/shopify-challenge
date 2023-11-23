@@ -572,6 +572,29 @@ ul {
 
   .main .trail__banner {
     border-radius: 8px;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .main .trail__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .main .trail__body > p {
+    margin-bottom: 0;
+  }
+
+  .trail__close-btn {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+  }
+
+  .trail__cta:hover,
+  .trail__close-btn:hover {
+    cursor: pointer;
   }
 
   .main .setup-guide {
