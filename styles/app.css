@@ -40,6 +40,7 @@ body {
   font-size: 0.8125rem;
   line-height: 140%;
   background: var(--bg);
+  color: var(--fnt-dark);
 }
 
 input[type='search']::-webkit-search-decoration,
@@ -82,6 +83,7 @@ ul {
   border: 0;
 }
 
+/* Mobile Styles */
 .nav {
   display: flex;
   align-items: center;
@@ -153,6 +155,60 @@ ul {
   color: var(--white);
 }
 
+.notification-panel,
+.menu__list {
+  background: var(--white);
+  border-radius: 14px;
+
+  position: absolute;
+  right: 16px;
+  top: 68px;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+
+  /* display: none; */
+}
+
+.notification-panel {
+  padding: 16px;
+  left: 16px;
+  max-width: 383px;
+}
+
+.notification-panel h2 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.panel-controls button {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.panel-body {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--bg);
+}
+
+.panel-body > p {
+  text-align: center;
+  font-weight: 600;
+}
+
 .username {
   display: none;
 }
@@ -183,12 +239,7 @@ ul {
 }
 
 .menu__list {
-  background: var(--white);
-  border-radius: 14px;
   padding: 6px 0;
-  position: absolute;
-  right: 16px;
-  top: 68px;
   width: min(320px, 90%);
   min-width: 200px;
 
@@ -451,6 +502,9 @@ ul {
   border-radius: 6px;
 }
 
+@media (min-width: 415px) {
+}
+
 @media (min-width: 756px) {
   .logo-lg {
     display: block;
@@ -498,8 +552,12 @@ ul {
     max-width: calc(800px + 32px);
   }
 
-  .main > div {
+  .main .trail__banner {
     border-radius: 8px;
+  }
+
+  .main .setup-guide {
+    border-radius: 18px;
   }
 }
 
