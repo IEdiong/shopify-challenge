@@ -364,6 +364,10 @@ ul {
   padding-right: 8px;
 }
 
+.hide-banner {
+  visibility: hidden;
+}
+
 .trail__body {
   flex: 1 0 0;
 }
