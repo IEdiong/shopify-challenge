@@ -351,7 +351,7 @@ ul {
 
 .main {
   padding-top: 28px;
-  padding-bottom: 28px;
+  padding-bottom: 48px;
 }
 
 .trail__banner {
@@ -415,16 +415,32 @@ ul {
   cursor: pointer;
 }
 
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bar-container {
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar {
+  border-radius: 28px;
+}
+
 .setup__details > .setup__summary::after {
   content: url('https://crushingit.tech/hackathon-assets/icon-arrow-down.svg');
   height: 28px;
-  width: 28px;
+  min-width: 28px;
+  flex-basis: 28px;
+  transition: transform 0.5s ease;
 }
 
 .setup__details[open] > .setup__summary::after {
-  content: url('https://crushingit.tech/hackathon-assets/icon-arrow-up.svg');
-  height: 28px;
-  width: 28px;
+  transform: rotate(180deg);
+  transform-origin: center center;
 }
 
 .setup-guide__summary > h2 {
