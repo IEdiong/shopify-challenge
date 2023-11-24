@@ -8,8 +8,8 @@ const menuItems = menu.querySelectorAll('[role="menuitem"]');
 const notificationBtn = document.getElementById('notification-btn');
 const notification = document.getElementById('notification-panel');
 
-const trailCloseBtn = document.getElementById('trailclosebtn');
-const trailBanner = document.getElementById('trail-banner');
+const trailCloseBtn = document.getElementById('trialclosebtn');
+const trailCallout = document.getElementById('trial-callout');
 
 let escapeListner,
   menuNavigation,
@@ -18,7 +18,7 @@ let escapeListner,
 // Add event listeners
 menuBtn.addEventListener('click', toggleMenu);
 notificationBtn.addEventListener('click', toggleNotification);
-trailCloseBtn.addEventListener('click', closeBanner);
+trailCloseBtn.addEventListener('click', closeCallout);
 
 // Function to execute
 function toggleMenu() {
@@ -96,6 +96,6 @@ function toggleNotification() {
   }
 }
 
-function closeBanner() {
-  trailBanner.classList.add('hide-banner');
+function closeCallout() {
+  trailCallout.classList.add('hide-banner');
 }

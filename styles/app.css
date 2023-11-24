@@ -53,7 +53,9 @@ input[type='search']::-webkit-search-results-decoration {
 input[type='search']:focus-visible,
 button:focus-visible,
 button:focus,
-.menu__item:focus {
+.menu__item:focus,
+a:focus,
+a:focus-visible {
   outline: 2px solid var(--focused);
   border-radius: 8px;
 }
@@ -128,7 +130,8 @@ ul {
   background-color: transparent;
   border: none;
   padding: 8px;
-  color: var(--grey-100);
+  /* color: var(--grey-100); */
+  color: var(--fnt-light);
   position: absolute;
   padding-left: 34px;
   width: 100%;
@@ -285,6 +288,8 @@ ul {
   color: var(--fnt-dark);
   border-radius: 8px;
   text-align: left;
+
+  transition: background 0.4s cubic-bezier(0.06, 0.54, 0.56, 1.01);
 }
 
 .menu__item:hover {
@@ -333,6 +338,11 @@ ul {
   gap: 8px;
 }
 
+.menu__store svg {
+  width: 20px;
+  height: 20px;
+}
+
 .profile__btn {
   display: flex;
   flex-direction: column;
@@ -354,7 +364,7 @@ ul {
   padding-bottom: 48px;
 }
 
-.trail__banner {
+.trial__callout {
   display: flex;
   align-items: flex-start;
   background: var(--grey-300);
@@ -368,31 +378,33 @@ ul {
   visibility: hidden;
 }
 
-.trail__body {
+.trial__body {
   flex: 1 0 0;
 }
 
-.trail__body > p {
+.trial__body > p {
   font-weight: 500;
   margin-bottom: 16px;
 }
 
-.trail__close-btn {
+.trial__close-btn {
   width: 36px;
   height: 36px;
   padding: 8px;
 }
 
-.trail__cta {
+.trial__cta {
+  color: #323232;
   background: var(--white);
   height: 28px;
-  padding-inline: 12px;
+  padding: 6px 12px;
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px -1px 0px 0px #b5b5b5 inset;
   font-size: 12px;
   font-weight: 600;
   line-height: 130%;
+  text-decoration: none;
 }
 
 .setup-guide {
@@ -431,7 +443,7 @@ ul {
 }
 
 .setup__details > .setup__summary::after {
-  content: url('https://crushingit.tech/hackathon-assets/icon-arrow-down.svg');
+  /* content: url('https://crushingit.tech/hackathon-assets/icon-arrow-down.svg'); */
   height: 28px;
   min-width: 28px;
   flex-basis: 28px;
@@ -590,30 +602,30 @@ ul {
     max-width: calc(800px + 32px);
   }
 
-  .main .trail__banner {
+  .main .trial__callout {
     border-radius: 8px;
     align-items: center;
     gap: 8px;
   }
 
-  .main .trail__body {
+  .main .trial__body {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .main .trail__body > p {
+  .main .trial__body > p {
     margin-bottom: 0;
   }
 
-  .trail__close-btn {
+  .trial__close-btn {
     width: 32px;
     height: 32px;
     padding: 6px;
   }
 
-  .trail__cta:hover,
-  .trail__close-btn:hover {
+  .trial__cta:hover,
+  .trial__close-btn:hover {
     cursor: pointer;
   }
 
