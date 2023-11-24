@@ -482,7 +482,7 @@ ul {
   padding-bottom: 16px;
 }
 
-.step__details[open] {
+.step__details:hover {
   background: #f3f3f3;
 }
 
@@ -532,6 +532,7 @@ ul {
 .btn {
   display: flex;
   padding: 6px 12px;
+  font-weight: 600;
 }
 
 .dark-btn {
