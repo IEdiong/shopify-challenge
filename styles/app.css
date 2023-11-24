@@ -442,19 +442,6 @@ ul {
   border-radius: 28px;
 }
 
-.setup__details > .setup__summary::after {
-  /* content: url('https://crushingit.tech/hackathon-assets/icon-arrow-down.svg'); */
-  height: 28px;
-  min-width: 28px;
-  flex-basis: 28px;
-  transition: transform 0.5s ease;
-}
-
-.setup__details[open] > .setup__summary::after {
-  transform: rotate(180deg);
-  transform-origin: center center;
-}
-
 .setup-guide__summary > h2 {
   font-size: 0.875rem;
 }
