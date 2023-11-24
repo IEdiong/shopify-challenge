@@ -486,6 +486,21 @@ ul {
   background: #f3f3f3;
 }
 
+.step-container {
+  display: flex;
+  align-items: center;
+  gap: 96px;
+}
+
+.step__img {
+  display: none;
+}
+
+.step__img > img {
+  display: block;
+  max-width: 100%;
+}
+
 .step__summary {
   /* border: 1px solid var(--focused); */
   display: flex;
@@ -635,6 +650,13 @@ ul {
 
   .main .setup-guide {
     border-radius: 18px;
+  }
+
+  .step__img {
+    display: flex;
+    flex-shrink: 0;
+    height: 120px;
+    width: 156px;
   }
 }
 
