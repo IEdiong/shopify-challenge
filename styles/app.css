@@ -423,10 +423,6 @@ ul {
   padding: 8px;
 }
 
-.setup__summary:hover {
-  cursor: pointer;
-}
-
 .progress {
   display: flex;
   align-items: center;
@@ -454,6 +450,25 @@ ul {
   margin-top: 16px;
   font-size: 0.75rem;
   line-height: 130%;
+}
+
+.setup-guide__toggle {
+  width: 28px;
+  height: 28px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.setup-guide__toggle svg {
+  width: 100%;
+  height: auto;
+
+  transition: 0.7s ease-in-out;
+}
+
+.setup-guide__toggle:hover svg {
+  transform: rotate(-180deg);
+  transform-origin: center center;
 }
 
 .step__details {
