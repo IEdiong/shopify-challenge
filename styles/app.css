@@ -482,6 +482,17 @@ ul {
   padding-bottom: 16px;
 }
 
+.hide-details {
+  height: 40px;
+  overflow: hidden;
+}
+
+.hide-details .step__img,
+.hide-details .step-desc,
+.hide-details .step-btn {
+  display: none;
+}
+
 .step__details:hover {
   background: #f3f3f3;
 }
@@ -523,6 +534,7 @@ ul {
 .step-heading {
   font-weight: 600;
   font-size: inherit;
+  padding-top: 3px;
 }
 
 .step-desc {
