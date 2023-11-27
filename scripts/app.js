@@ -35,6 +35,8 @@ let escapeListner,
   menuNavigation,
   el = 0;
 
+let openedWithKeyboard = false;
+
 const tabListOpenState = [true, false, false, false, false];
 
 for (let i = 0; i < tabListOpenState.length; i++) {
@@ -46,15 +48,19 @@ for (let i = 0; i < tabListOpenState.length; i++) {
 }
 
 // Add event listeners
-menuBtn.addEventListener('click', toggleMenu);
+menuBtn.addEventListener('click', toggleMenuOnClick);
+menuBtn.addEventListener('keyup', toggleMenuOnTab);
 notificationBtn.addEventListener('click', toggleNotification);
 trailCloseBtn.addEventListener('click', closeCallout);
 stepsToggleBtn.addEventListener('click', toggleStepsToggle);
 
 // Function to execute
-function toggleMenu() {
+function toggleMenuOnClick(event) {
   // change the aria-* attribute
   // Focus on first menu item or button
+
+  openedWithKeyboard = true;
+
   if (menuBtn.attributes['aria-expanded'].value === 'true') {
     closeMenu();
   } else {
@@ -62,10 +68,27 @@ function toggleMenu() {
   }
 }
 
+function toggleMenuOnTab(event) {
+  event.preventDefault();
+
+  if (
+    event.key === 'Enter' ||
+    event.key === ' ' ||
+    (event.ctrlKey && event.altKey && event.key === ' ')
+  ) {
+    openedWithKeyboard = true;
+    if (menuBtn.attributes['aria-expanded'].value === 'true') {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+}
+
 function closeMenu() {
   menu.classList.toggle('menu-open');
   menuBtn.ariaExpanded = 'false';
-  menuBtn.focus();
+  if (openedWithKeyboard) menuBtn.focus();
 
   menu.removeEventListener('keyup', escapeListner);
   menu.removeEventListener('keyup', menuNavigation);
@@ -75,7 +98,10 @@ function openMenu() {
   el = 0;
   menu.classList.toggle('menu-open');
   menuBtn.ariaExpanded = 'true';
-  menuItems.item(el).focus();
+
+  if (openedWithKeyboard) {
+    menuItems.item(el).focus({ focusVisibility: 'true' });
+  }
 
   escapeListner = menu.addEventListener('keyup', handleMenuEscapeKeypress);
   menuNavigation = menu.addEventListener('keyup', handleMenuNavigation);

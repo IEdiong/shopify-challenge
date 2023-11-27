@@ -280,7 +280,7 @@ ul {
   background: var(--grey-50);
 }
 
-.menu__btn:focus {
+.menu__btn:focus-visible {
   outline: 2px solid var(--focused);
   outline-offset: 1px;
   border-radius: 8px;
