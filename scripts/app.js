@@ -26,6 +26,11 @@ const stepsAnnouncer = document.getElementById('steps-live');
 
 const allStepDetailSummary = document.querySelectorAll('.step__details');
 
+const progressLevel = document.getElementById('progress-level');
+const levelNumber = document.getElementById('level');
+
+progressLevel.style.width = 0;
+
 let escapeListner,
   menuNavigation,
   el = 0;
@@ -168,6 +173,14 @@ function markAsDone(ctx) {
       .splice(1)
       .join(' ')}`;
     ctx.ariaLabel = ctx.ariaLabel.replace('done', 'not done');
+
+    let width = 0;
+
+    allStepTriggers.forEach((step) => {
+      step.classList.contains(MARKED_AS_DONE) ? (width += 14.4) : null;
+    });
+    levelNumber.textContent = width / 14.4;
+    progressLevel.style.width = width;
   }, 2000);
 }
 
@@ -187,6 +200,15 @@ function markAsNotDone(ctx) {
       .splice(1)
       .join(' ')}`;
     ctx.ariaLabel = ctx.ariaLabel.replace('not done', 'done');
+    console.log(allStepTriggers);
+
+    let width = 0;
+
+    allStepTriggers.forEach((step) => {
+      step.classList.contains(MARKED_AS_DONE) ? (width += 14.4) : null;
+    });
+    levelNumber.textContent = width / 14.4;
+    progressLevel.style.width = width;
   }, 2000);
 }
 
