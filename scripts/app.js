@@ -21,6 +21,8 @@ const notCompletedIcon = document.getElementById('not-completed-icon');
 const completedIcon = document.getElementById('completed-icon');
 const loadingSpinnerIcon = document.getElementById('loading-spinner-icon');
 
+const allStepTriggers = document.querySelectorAll('.step__status');
+
 let escapeListner,
   menuNavigation,
   el = 0;
@@ -30,7 +32,6 @@ menuBtn.addEventListener('click', toggleMenu);
 notificationBtn.addEventListener('click', toggleNotification);
 trailCloseBtn.addEventListener('click', closeCallout);
 stepsToggleBtn.addEventListener('click', toggleStepsToggle);
-checkboxButton.addEventListener('click', handleMardDoneOrNotDone);
 
 // Function to execute
 function toggleMenu() {
@@ -108,45 +109,53 @@ function toggleNotification() {
   }
 }
 
+// ! Close Callout
 function closeCallout() {
   trailCallout.classList.add('hide-banner');
 }
 
+// ! Toggle Accordion Card
 function toggleStepsToggle() {
   stepsList.classList.toggle('hidden');
   stepsToggleBtn.classList.toggle('toggle-open');
 }
 
+// ! Mark as done
 function handleMardDoneOrNotDone() {
-  const markedAsDone = checkboxButton.classList.contains(MARKED_AS_DONE);
+  // console.log(this.children);
+  const markedAsDone = this.classList.contains(MARKED_AS_DONE);
 
   if (markedAsDone) {
-    markAsNotDone();
+    markAsNotDone(this);
   } else {
-    markAsDone();
+    markAsDone(this);
   }
 }
 
-function markAsDone() {
-  notCompletedIcon.classList.add('icon-hidden');
-  loadingSpinnerIcon.classList.remove('icon-hidden');
+function markAsDone(ctx) {
+  ctx.children.item(0).classList.add('icon-hidden');
+  ctx.children.item(2).classList.remove('icon-hidden');
 
   setTimeout(() => {
-    loadingSpinnerIcon.classList.add('icon-hidden');
-    completedIcon.classList.remove('icon-hidden');
+    ctx.children.item(2).classList.add('icon-hidden');
+    ctx.children.item(1).classList.remove('icon-hidden');
 
-    checkboxButton.classList.add(MARKED_AS_DONE);
+    ctx.classList.add(MARKED_AS_DONE);
   }, 2000);
 }
 
-function markAsNotDone() {
-  completedIcon.classList.add('icon-hidden');
-  loadingSpinnerIcon.classList.remove('icon-hidden');
+function markAsNotDone(ctx) {
+  ctx.children.item(1).classList.add('icon-hidden');
+  ctx.children.item(2).classList.remove('icon-hidden');
 
   setTimeout(() => {
-    loadingSpinnerIcon.classList.add('icon-hidden');
-    notCompletedIcon.classList.remove('icon-hidden');
+    ctx.children.item(2).classList.add('icon-hidden');
+    ctx.children.item(0).classList.remove('icon-hidden');
 
-    checkboxButton.classList.remove(MARKED_AS_DONE);
+    ctx.classList.remove(MARKED_AS_DONE);
   }, 2000);
 }
+
+allStepTriggers.forEach((stepTrigger) => {
+  stepTrigger.addEventListener('click', handleMardDoneOrNotDone);
+});
