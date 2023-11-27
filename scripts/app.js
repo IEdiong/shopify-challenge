@@ -35,6 +35,16 @@ let escapeListner,
   menuNavigation,
   el = 0;
 
+const tabListOpenState = [true, false, false, false, false];
+
+for (let i = 0; i < tabListOpenState.length; i++) {
+  if (tabListOpenState[i] === true) {
+    allStepDetailSummary.item(i).classList.remove('hide-details');
+  } else {
+    allStepDetailSummary.item(i).classList.add('hide-details');
+  }
+}
+
 // Add event listeners
 menuBtn.addEventListener('click', toggleMenu);
 notificationBtn.addEventListener('click', toggleNotification);
@@ -186,6 +196,27 @@ function markAsDone(ctx) {
       allStepDetailSummary.forEach((summary) => {
         summary.classList.add('hide-details');
       });
+    } else {
+      let isFirstMatchFound = false;
+
+      allStepDetailSummary.forEach((summary) => {
+        if (
+          summary.classList.contains('hide-details') &&
+          !summary.classList.contains('done') &&
+          !isFirstMatchFound
+        ) {
+          summary.classList.remove('hide-details');
+          isFirstMatchFound = true;
+        }
+      });
+      const parent = findParentWithClass(ctx, 'step__details');
+      parent.classList.add('done');
+
+      allStepDetailSummary.forEach(
+        (summary) =>
+          summary.classList.contains('done') &&
+          summary.classList.add('hide-details')
+      );
     }
   }, 2000);
 }
@@ -206,7 +237,6 @@ function markAsNotDone(ctx) {
       .splice(1)
       .join(' ')}`;
     ctx.ariaLabel = ctx.ariaLabel.replace('not done', 'done');
-    console.log(allStepTriggers);
 
     let width = 0;
 
@@ -215,9 +245,24 @@ function markAsNotDone(ctx) {
     });
     levelNumber.textContent = width / 14.4;
     progressLevel.style.width = width;
+
+    const parent = findParentWithClass(ctx, 'step__details');
+    parent.classList.remove('done');
   }, 2000);
 }
 
 allStepTriggers.forEach((stepTrigger) => {
   stepTrigger.addEventListener('click', handleMardDoneOrNotDone);
 });
+
+function findParentWithClass(element, className) {
+  let currentElement = element;
+
+  // Keep traversing up the DOM tree until we find the desired class or reach the top
+  while (currentElement && !currentElement.classList.contains(className)) {
+    currentElement = currentElement.parentNode;
+  }
+
+  // Return the found element or null if not found
+  return currentElement;
+}
