@@ -181,6 +181,12 @@ function markAsDone(ctx) {
     });
     levelNumber.textContent = width / 14.4;
     progressLevel.style.width = width;
+
+    if (width === 72) {
+      allStepDetailSummary.forEach((summary) => {
+        summary.classList.add('hide-details');
+      });
+    }
   }, 2000);
 }
 
