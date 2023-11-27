@@ -11,6 +11,9 @@ const notification = document.getElementById('notification-panel');
 const trailCloseBtn = document.getElementById('trialclosebtn');
 const trailCallout = document.getElementById('trial-callout');
 
+const stepsToggleBtn = document.getElementById('steps-toggle-btn');
+const stepsList = document.getElementById('steps-list');
+
 let escapeListner,
   menuNavigation,
   el = 0;
@@ -19,6 +22,7 @@ let escapeListner,
 menuBtn.addEventListener('click', toggleMenu);
 notificationBtn.addEventListener('click', toggleNotification);
 trailCloseBtn.addEventListener('click', closeCallout);
+stepsToggleBtn.addEventListener('click', toggleStepsToggle);
 
 // Function to execute
 function toggleMenu() {
@@ -98,4 +102,9 @@ function toggleNotification() {
 
 function closeCallout() {
   trailCallout.classList.add('hide-banner');
+}
+
+function toggleStepsToggle() {
+  stepsList.classList.toggle('hidden');
+  stepsToggleBtn.classList.toggle('toggle-open');
 }
