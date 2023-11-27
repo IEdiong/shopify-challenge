@@ -1,5 +1,7 @@
 'use strict';
 
+const MARKED_AS_DONE = 'marked-as-done';
+
 // Get elements from the DOM
 const menuBtn = document.getElementById('menubutton');
 const menu = document.getElementById('menu-content');
@@ -14,6 +16,11 @@ const trailCallout = document.getElementById('trial-callout');
 const stepsToggleBtn = document.getElementById('steps-toggle-btn');
 const stepsList = document.getElementById('steps-list');
 
+const checkboxButton = document.getElementById('shopping-item-checkbox');
+const notCompletedIcon = document.getElementById('not-completed-icon');
+const completedIcon = document.getElementById('completed-icon');
+const loadingSpinnerIcon = document.getElementById('loading-spinner-icon');
+
 let escapeListner,
   menuNavigation,
   el = 0;
@@ -23,6 +30,7 @@ menuBtn.addEventListener('click', toggleMenu);
 notificationBtn.addEventListener('click', toggleNotification);
 trailCloseBtn.addEventListener('click', closeCallout);
 stepsToggleBtn.addEventListener('click', toggleStepsToggle);
+checkboxButton.addEventListener('click', handleMardDoneOrNotDone);
 
 // Function to execute
 function toggleMenu() {
@@ -107,4 +115,38 @@ function closeCallout() {
 function toggleStepsToggle() {
   stepsList.classList.toggle('hidden');
   stepsToggleBtn.classList.toggle('toggle-open');
+}
+
+function handleMardDoneOrNotDone() {
+  const markedAsDone = checkboxButton.classList.contains(MARKED_AS_DONE);
+
+  if (markedAsDone) {
+    markAsNotDone();
+  } else {
+    markAsDone();
+  }
+}
+
+function markAsDone() {
+  notCompletedIcon.classList.add('icon-hidden');
+  loadingSpinnerIcon.classList.remove('icon-hidden');
+
+  setTimeout(() => {
+    loadingSpinnerIcon.classList.add('icon-hidden');
+    completedIcon.classList.remove('icon-hidden');
+
+    checkboxButton.classList.add(MARKED_AS_DONE);
+  }, 2000);
+}
+
+function markAsNotDone() {
+  completedIcon.classList.add('icon-hidden');
+  loadingSpinnerIcon.classList.remove('icon-hidden');
+
+  setTimeout(() => {
+    loadingSpinnerIcon.classList.add('icon-hidden');
+    notCompletedIcon.classList.remove('icon-hidden');
+
+    checkboxButton.classList.remove(MARKED_AS_DONE);
+  }, 2000);
 }
