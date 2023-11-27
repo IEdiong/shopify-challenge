@@ -22,6 +22,7 @@ const completedIcon = document.getElementById('completed-icon');
 const loadingSpinnerIcon = document.getElementById('loading-spinner-icon');
 
 const allStepTriggers = document.querySelectorAll('.step__status');
+const stepsAnnouncer = document.getElementById('steps-live');
 
 let escapeListner,
   menuNavigation,
@@ -136,11 +137,18 @@ function markAsDone(ctx) {
   ctx.children.item(0).classList.add('icon-hidden');
   ctx.children.item(2).classList.remove('icon-hidden');
 
+  stepsAnnouncer.ariaLabel = 'Loading. Please wait...';
+
   setTimeout(() => {
     ctx.children.item(2).classList.add('icon-hidden');
     ctx.children.item(1).classList.remove('icon-hidden');
 
     ctx.classList.add(MARKED_AS_DONE);
+    stepsAnnouncer.ariaLabel = `Successfully marked ${ctx.ariaLabel
+      .split(' ')
+      .splice(1)
+      .join(' ')}`;
+    ctx.ariaLabel = ctx.ariaLabel.replace('done', 'not done');
   }, 2000);
 }
 
@@ -148,11 +156,18 @@ function markAsNotDone(ctx) {
   ctx.children.item(1).classList.add('icon-hidden');
   ctx.children.item(2).classList.remove('icon-hidden');
 
+  stepsAnnouncer.ariaLabel = 'Loading. Please wait...';
+
   setTimeout(() => {
     ctx.children.item(2).classList.add('icon-hidden');
     ctx.children.item(0).classList.remove('icon-hidden');
 
     ctx.classList.remove(MARKED_AS_DONE);
+    stepsAnnouncer.ariaLabel = `Successfully marked ${ctx.ariaLabel
+      .split(' ')
+      .splice(1)
+      .join(' ')}`;
+    ctx.ariaLabel = ctx.ariaLabel.replace('not done', 'done');
   }, 2000);
 }
 
