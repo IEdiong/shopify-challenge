@@ -420,7 +420,12 @@
               </span>
             </div>
           </div>
-          <button role="" class="setup-guide__toggle" id="steps-toggle-btn">
+          <button
+            class="setup-guide__toggle"
+            id="steps-toggle-btn"
+            aria-controls="steps-list"
+            aria-expanded="false"
+          >
             <svg
               width="41"
               height="40"
@@ -437,7 +442,7 @@
             </svg>
           </button>
         </header>
-        <ol class="steps hidden" id="steps-list">
+        <ol class="steps hidden" id="steps-list" role="panel">
           <span id="steps-live" aria-live="polite"></span>
           <li class="step__details">
             <div class="step-container">

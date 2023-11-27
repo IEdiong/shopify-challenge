@@ -119,6 +119,7 @@ function closeCallout() {
 function toggleStepsToggle() {
   stepsList.classList.toggle('hidden');
   stepsToggleBtn.classList.toggle('toggle-open');
+  stepsToggleBtn.ariaExpanded == 'false' ? 'true' : 'false';
 }
 
 // ! Mark as done
