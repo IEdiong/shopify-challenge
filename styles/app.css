@@ -55,13 +55,13 @@ button:focus-visible {
   outline: none;
 }
 
-button:focus,
+/* button:focus,
 .menu__item:focus,
 a:focus,
 a:focus-visible {
   outline: 2px solid var(--focused);
   border-radius: 8px;
-}
+} */
 
 .panel-controls button:focus,
 .panel-controls button:focus-visible {
@@ -110,6 +110,18 @@ ul {
   gap: 8px;
   flex: 1 0 0;
 }
+
+.nav__left > a:focus {
+  outline: 2px solid var(--focused);
+  outline-offset: 1px;
+  border-radius: 8px;
+}
+
+/* .menu__btn:focus {
+  outline: 2px solid var(--focused);
+  outline-offset: 1px;
+  border-radius: 8px;
+} */
 
 .logo-lg {
   display: none;
@@ -251,7 +263,23 @@ ul {
   height: 32px;
   width: 32px;
   border-radius: 8px;
+  background: var(--grey-200);
+  transition: all 0.3s ease-in-out;
+}
+
+.menu__btn:hover {
+  background: var(--grey-100);
+}
+
+.menu__btn:active,
+.menu__btn:focus {
   background: var(--grey-50);
+}
+
+.menu__btn:focus {
+  outline: 2px solid var(--focused);
+  outline-offset: 1px;
+  border-radius: 8px;
 }
 
 .menu__initials {
