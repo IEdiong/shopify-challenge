@@ -55,14 +55,6 @@ button:focus-visible {
   outline: none;
 }
 
-/* button:focus,
-.menu__item:focus,
-a:focus,
-a:focus-visible {
-  outline: 2px solid var(--focused);
-  border-radius: 8px;
-} */
-
 .panel-controls button:focus,
 .panel-controls button:focus-visible {
   outline: 1px solid var(--focused);
@@ -182,6 +174,22 @@ ul {
   display: flex;
   align-items: start;
   gap: 8px;
+}
+
+.notification__dropdown > button {
+  border-radius: 6px;
+}
+
+.notification__dropdown > button:focus,
+.notification__dropdown > button:focus-visible,
+.trial__cta:focus,
+.trial__cta:focus-visible,
+.trial__close-btn:focus,
+.trial__close-btn:focus-visible,
+.setup-guide__toggle:focus,
+.setup-guide__toggle:focus-visible {
+  outline: 2px solid var(--focused);
+  outline-offset: 0px;
 }
 
 .notification__btn {
@@ -336,11 +344,21 @@ ul {
   border-radius: 8px;
   text-align: left;
 
-  transition: background 0.4s cubic-bezier(0.06, 0.54, 0.56, 1.01);
+  transition: background 0.3s ease-in-out;
 }
 
 .menu__item:hover {
-  background: var(--hovered);
+  background: var(--bg);
+}
+
+.menu__item:active {
+  background: var(--pressed);
+}
+
+.menu__item:focus,
+.menu__item:focus-visible {
+  outline: 2px solid var(--focused);
+  border-radius: 8px;
 }
 
 .menu__collection {
@@ -438,6 +456,7 @@ ul {
   width: 36px;
   height: 36px;
   padding: 8px;
+  border-radius: 6px;
 }
 
 .trial__cta {
@@ -452,6 +471,21 @@ ul {
   font-weight: 600;
   line-height: 130%;
   text-decoration: none;
+}
+
+.trial__cta:hover,
+.trial__cta:active {
+  background: var(--hovered);
+}
+
+.trial__cta:active {
+  box-shadow: 0px 2px 1.5px 0px #e2e2e2 inset;
+}
+
+.trial__cta:focus,
+.trial__cta:focus-visible {
+  outline: 2px solid var(--focused);
+  outline-offset: 1px;
 }
 
 .setup-guide {
@@ -504,6 +538,7 @@ ul {
   height: 28px;
   padding: 4px;
   cursor: pointer;
+  border-radius: 6px;
 }
 
 .setup-guide__toggle svg {
@@ -511,6 +546,14 @@ ul {
   height: auto;
 
   transition: 0.7s ease-in-out;
+}
+
+.setup-guide__toggle:hover {
+  background: var(--bg);
+}
+
+.setup-guide__toggle:active {
+  background: var(--pressed);
 }
 
 .setup-guide__toggle:hover svg {
