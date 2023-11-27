@@ -11,6 +11,8 @@
   --stroke-100: #e1e1e1;
   --stroke-200: #616161;
 
+  --stroke-lg: rgba(255, 255, 255, 0.2);
+
   /* plain */
   --white: #ffffff;
   --bg: #f1f1f1;
@@ -494,7 +496,6 @@ ul {
 }
 
 .setup__summary {
-  /* border: 1px solid var(--focused); */
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -561,12 +562,9 @@ ul {
 
 .steps {
   list-style: none;
-
-  /* transition: all 1s ease; */
 }
 
 .step__details {
-  /* border: 1px solid green; */
   border-radius: 10px;
   padding: 8px;
   padding-bottom: 16px;
@@ -583,6 +581,7 @@ ul {
 .hide-details .step__img,
 .hide-details .step-desc,
 .hide-details .step-btn {
+  height: 0;
   display: none;
 }
 
@@ -606,10 +605,22 @@ ul {
 }
 
 .step__summary {
-  /* border: 1px solid var(--focused); */
   display: flex;
   align-items: flex-start;
   gap: 8px;
+  width: 100%;
+}
+
+.step__details:hover {
+  cursor: pointer;
+}
+
+.step__details:not(.hide-details):hover {
+  cursor: default;
+}
+
+.step-content {
+  width: 100%;
 }
 
 .icon-hidden {
@@ -674,6 +685,16 @@ ul {
   }
 }
 
+@keyframes reveal {
+  from {
+    height: 40px;
+  }
+
+  to {
+    height: auto;
+  }
+}
+
 .step__image {
   stroke: #8a8a8a;
   width: 100%;
@@ -683,6 +704,7 @@ ul {
   font-weight: 600;
   font-size: inherit;
   padding-top: 3px;
+  width: 100%;
 }
 
 .step-desc {
@@ -708,18 +730,29 @@ ul {
   display: flex;
   padding: 6px 12px;
   font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
 }
 
 .dark-btn {
-  border-top: 1.5px solid var(--stroke-100, rgba(255, 255, 255, 0.2));
-  border-right: 1.5px solid var(--stroke-100, rgba(255, 255, 255, 0.2));
-  border-left: 1.5px solid var(--stroke-100, rgba(255, 255, 255, 0.2));
+  border-top: 1.5px solid var(--stroke-lg);
+  border-right: 1.5px solid var(--stroke-lg);
+  border-left: 1.5px solid var(--stroke-lg);
   box-shadow: 0px 0px 0px 1.5px #333, 0px 1px 0px 1.5px #333,
     0px 2px 0px 0px #000;
 
   background: #404040;
   color: var(--fnt-light);
   border-radius: 6px;
+}
+
+.dark-btn:hover {
+  background: #2a2a2a;
+}
+
+.dark-btn:active {
+  background: #2b2b2b;
+  box-shadow: 0px 0px 0px 1.5px #333, 0px 3px 0px 0px #000 inset;
 }
 
 .notification__btn:focus-visible,

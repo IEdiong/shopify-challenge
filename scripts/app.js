@@ -24,6 +24,8 @@ const loadingSpinnerIcon = document.getElementById('loading-spinner-icon');
 const allStepTriggers = document.querySelectorAll('.step__status');
 const stepsAnnouncer = document.getElementById('steps-live');
 
+const allStepDetailSummary = document.querySelectorAll('.step__details');
+
 let escapeListner,
   menuNavigation,
   el = 0;
@@ -120,6 +122,22 @@ function toggleStepsToggle() {
   stepsList.classList.toggle('hidden');
   stepsToggleBtn.classList.toggle('toggle-open');
   stepsToggleBtn.ariaExpanded == 'false' ? 'true' : 'false';
+}
+
+// ! Toggle Step details
+allStepDetailSummary.forEach((stepSummary) => {
+  stepSummary.addEventListener('click', toggleStepDetails);
+});
+
+function toggleStepDetails() {
+  const currentStep = this;
+  allStepDetailSummary.forEach((stepDetails) => {
+    if (stepDetails === currentStep) {
+      stepDetails.classList.remove('hide-details');
+    } else {
+      stepDetails.classList.add('hide-details');
+    }
+  });
 }
 
 // ! Mark as done
