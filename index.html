@@ -119,6 +119,7 @@
             id="search-input"
             class="search"
             placeholder="Search"
+            aria-label="Search Shopify Onboarding page..."
           />
         </form>
       </div>
@@ -367,9 +368,10 @@
       </div>
     </nav>
     <main class="main">
+      <span aria-live="polite" id="callout-live"></span>
       <div
         role="dialog"
-        aria-label="Make a plan selection"
+        aria-label="Extend your trial for $1 per month for 3 months on select plans."
         aria-describedby="trial-callout-desc"
         id="trial-callout"
         class="trial__callout"
@@ -382,13 +384,18 @@
             >Select a plan</a
           >
         </div>
-        <button id="trialclosebtn" class="trial__close-btn" aria-label="close">
+        <button
+          id="trialclosebtn"
+          class="trial__close-btn"
+          aria-label="close plan selection dialog"
+        >
           <svg
             width="41"
             height="40"
             viewBox="0 0 21 20"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
             <path
               d="M14.4697 15.0303C14.7626 15.3232 15.2374 15.3232 15.5303 15.0303C15.8232 14.7374 15.8232 14.2626 15.5303 13.9697L11.5607 10L15.5303 6.03033C15.8232 5.73744 15.8232 5.26256 15.5303 4.96967C15.2374 4.67678 14.7626 4.67678 14.4697 4.96967L10.5 8.93934L6.53033 4.96967C6.23744 4.67678 5.76256 4.67678 5.46967 4.96967C5.17678 5.26256 5.17678 5.73744 5.46967 6.03033L9.43934 10L5.46967 13.9697C5.17678 14.2626 5.17678 14.7374 5.46967 15.0303C5.76256 15.3232 6.23744 15.3232 6.53033 15.0303L10.5 11.0607L14.4697 15.0303Z"
@@ -400,12 +407,20 @@
 
       <article class="setup-guide">
         <header class="setup__summary">
-          <div class="setup-guide__summary">
+          <div id="setup-guide" class="setup-guide__summary">
             <h2>Setup guide</h2>
             <p>Use this personalized guide to get your store up and running.</p>
             <div class="progress">
-              <span> <span id="level">0</span> / 5 completed</span>
-              <span class="bar-container">
+              <span id="progress-label" role="presentation">
+                <span id="level">0</span> / 5 completed</span
+              >
+              <span
+                role="progressbar"
+                aria-valuenow="0"
+                aria-valuemax="5"
+                aria-labelledby="progress-label"
+                class="bar-container"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="72"
@@ -430,6 +445,7 @@
             id="steps-toggle-btn"
             aria-controls="steps-list"
             aria-expanded="false"
+            aria-labelledby="setup-guide"
           >
             <svg
               width="41"
@@ -437,6 +453,7 @@
               viewBox="0 0 21 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <path
                 fill-rule="evenodd"
@@ -449,7 +466,7 @@
         </header>
         <ol class="steps hidden" id="steps-list" role="panel">
           <span id="steps-live" aria-live="polite"></span>
-          <li class="step__details">
+          <li role="group" class="step__details">
             <div class="step-container">
               <span class="step__summary">
                 <button
@@ -514,7 +531,7 @@
                     />
                   </svg>
                 </button>
-                <article class="step-content">
+                <div class="step-content">
                   <h2 class="step-heading">Customize your online store</h2>
                   <p class="step-desc">
                     Choose a theme and add your logo, colors, and images to
@@ -523,7 +540,7 @@
                   <div class="step-btn">
                     <button class="btn dark-btn">Customize theme</button>
                   </div>
-                </article>
+                </div>
               </span>
               <div class="step__img">
                 <img
@@ -533,7 +550,7 @@
               </div>
             </div>
           </li>
-          <li class="step__details hide-details">
+          <li role="group" class="step__details hide-details">
             <div class="step-container">
               <span class="step__summary">
                 <button
@@ -618,7 +635,7 @@
               </div>
             </div>
           </li>
-          <li class="step__details hide-details">
+          <li role="group" class="step__details hide-details">
             <div class="step-container">
               <span class="step__summary">
                 <button
@@ -703,7 +720,7 @@
               </div>
             </div>
           </li>
-          <li class="step__details hide-details">
+          <li role="group" class="step__details hide-details">
             <div class="step-container">
               <span class="step__summary">
                 <button
@@ -788,7 +805,7 @@
               </div>
             </div>
           </li>
-          <li class="step__details hide-details">
+          <li role="group" class="step__details hide-details">
             <div class="step-container">
               <span class="step__summary">
                 <button
@@ -875,6 +892,7 @@
             </div>
           </li>
         </ol>
+        <span aria-live="assertive" id="setup-progress"></span>
       </article>
     </main>
   </body>

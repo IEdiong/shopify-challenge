@@ -29,6 +29,8 @@ const allStepDetailSummary = document.querySelectorAll('.step__details');
 const progressLevel = document.getElementById('progress-level');
 const levelNumber = document.getElementById('level');
 
+const calloutAnnouncer = document.getElementById('callout-live');
+
 progressLevel.style.width = 0;
 
 let escapeListner,
@@ -156,6 +158,8 @@ function toggleNotification() {
 // ! Close Callout
 function closeCallout() {
   trailCallout.classList.add('hide-banner');
+
+  calloutAnnouncer.ariaLabel = 'You just closed the plan selection dialogue';
 }
 
 // ! Toggle Accordion Card
@@ -217,6 +221,7 @@ function markAsDone(ctx) {
     });
     levelNumber.textContent = width / 14.4;
     progressLevel.style.width = width;
+    document.querySelector("[role='progressbar']").ariaValueNow;
 
     if (width === 72) {
       allStepDetailSummary.forEach((summary) => {
